@@ -1,8 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgcwjixerjqhp"]
+[gd_scene load_steps=3 format=3 uid="uid://cgcwjixerjqhp"]
 
 [ext_resource type="Script" path="res://simple_enemy.gd" id="1_w7ygf"]
-[ext_resource type="Texture2D" uid="uid://cxvwmer8v46vt" path="res://ui/ants/queen.ase" id="2_61g3m"]
-[ext_resource type="Script" path="res://ants/timer_debugger.gd" id="3_00jcr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bo8sf"]
 radius = 20.0
@@ -17,17 +15,11 @@ shape = SubResource("CapsuleShape2D_bo8sf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_61g3m")
 region_enabled = true
 region_rect = Rect2(0, 19, 109, 49)
 
 [node name="ChangeStateTimer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
-
-[node name="Label" type="Label" parent="ChangeStateTimer"]
-offset_right = 40.0
-offset_bottom = 26.0
-script = ExtResource("3_00jcr")
 
 [connection signal="timeout" from="ChangeStateTimer" to="." method="_on_change_state_timer_timeout"]
